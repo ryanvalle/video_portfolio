@@ -1,0 +1,20 @@
+@media (max-width: 600px) {
+  body:before {
+    content: 'mobile'; } }
+@media (min-width: 601px) {
+  body:before {
+    content: 'tablet'; } }
+@media (min-width: 768px) {
+  body:before {
+    content: 'tablet-wide'; } }
+@media (min-width: 1024px) {
+  body:before {
+    content: 'desktop'; } }
+@media (min-width: 1377px) {
+  body:before {
+    content: 'desktop-wide'; } }
+@media (min-width: 1900px) {
+  body:before {
+    content: 'desktop-super-wide'; } }
+
+/*# sourceMappingURL=application.css.map */

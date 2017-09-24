@@ -1,0 +1,22 @@
+@import 'mixins/responsiveness.scss';
+
+body {
+	@include breakpoint(mobile) {
+		&:before { content: 'mobile'; }
+	}
+	@include breakpoint(tablet) {
+		&:before { content: 'tablet'; }
+	}
+	@include breakpoint(tablet-wide) {
+		&:before { content: 'tablet-wide'; }
+	}
+	@include breakpoint(desktop) {
+		&:before { content: 'desktop'; }
+	}
+	@include breakpoint(desktop-wide) {
+		&:before { content: 'desktop-wide'; }
+	}
+	@include breakpoint(desktop-super-wide) {
+		&:before { content: 'desktop-super-wide'; }
+	}
+}

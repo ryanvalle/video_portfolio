@@ -1,0 +1,19 @@
+<?php
+	# DB CONNECTION FOR CLEARDB DATABASE - DEVELOPMENT
+	$url = array(
+		'host' => '',
+		'user' => '',
+		'pass' => '',
+		'db' => ''
+	);
+
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = $url["db"];
+
+	$conn = new mysqli($server, $username, $password, $db);
+
+	if ($conn->connect_error) {
+		die("Connection Error..." . $conn->connect_error);
+	}
