@@ -1,22 +1,59 @@
+@import 'mixins/colors.scss';
 @import 'mixins/responsiveness.scss';
 
-body {
-	@include breakpoint(mobile) {
-		&:before { content: 'mobile'; }
+.logo, nav {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.logo {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url('/assets/images/logo/rwp_logo_400.png');
+	position: relative;
+	display: inline-block;
+	width: 200px;
+	&.sm { background-image: url('/assets/images/logo/rwp_logo_200.png'); }
+	&.large { background-image: url('/assets/images/logo/rwp_logo_800.png'); }
+	&.xl { background-image: url('/assets/images/logo/rwp_logo_full.png'); }
+	&:before{
+		content: '';
+		padding-bottom: 25.5%;
+		display: block;
 	}
-	@include breakpoint(tablet) {
-		&:before { content: 'tablet'; }
+}
+
+nav {
+	// 100% full width - 200px logo width - (10px * 2) padding width
+	width: calc(100% - 200px - 20px);
+	text-align: right;
+	a {
+		$transition_speed_nav_a: 400ms;
+		color: $nav-default;
+		text-decoration: none;
+		transition: color $transition_speed_nav_a;
+		position: relative;
+		&:before {
+			content: '';
+			width: 100%;
+			height: 2px;
+			position: absolute;
+			bottom: -5px;
+			opacity: 0;
+			border-bottom: 1px solid $gold;
+			transition: opacity $transition_speed_nav_a, bottom $transition_speed_nav_a;
+		}
+		&:not(:last-child) { margin: 0 30px 0 0; }
+		&:hover {
+			color: $gold;
+			&:before {
+				bottom: 0px;
+				opacity: 1;
+			}
+		}
 	}
-	@include breakpoint(tablet-wide) {
-		&:before { content: 'tablet-wide'; }
-	}
-	@include breakpoint(desktop) {
-		&:before { content: 'desktop'; }
-	}
-	@include breakpoint(desktop-wide) {
-		&:before { content: 'desktop-wide'; }
-	}
-	@include breakpoint(desktop-super-wide) {
-		&:before { content: 'desktop-super-wide'; }
-	}
+}
+header {
+	padding: 10px;
+	background: #000;
 }

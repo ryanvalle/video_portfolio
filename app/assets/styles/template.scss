@@ -1,0 +1,10 @@
+@import 'mixins/responsiveness.scss';
+
+.constrain {
+	margin: 0 auto;
+	padding: 0 10px;
+	@include breakpoint(desktop) {
+		width: 100%;
+		max-width: 1200px;
+	}
+}
