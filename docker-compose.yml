@@ -1,0 +1,11 @@
+version: '2'
+services:
+  php:
+    build: ./docker/php
+    ports:
+      - '80:80'
+    volumes:
+      - ./app:/var/www/html
+      - ./docker/apache2/mods-enabled/rewrite.load:/etc/apache2/mods-enabled/rewrite.load
+volumes:
+  db:
