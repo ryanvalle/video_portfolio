@@ -1,5 +1,15 @@
 @import 'mixins/colors.scss';
+@import 'mixins/constants.scss';
 @import 'mixins/responsiveness.scss';
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 10px 0;
+	z-index: 1;
+}
 
 .logo, nav {
 	display: inline-block;
@@ -11,22 +21,33 @@
 	background-repeat: no-repeat;
 	background-image: url('/assets/images/logo/rwp_logo_400.png');
 	position: relative;
-	display: inline-block;
+	display: block;
 	width: 200px;
+	margin: 0 auto;
+	@include breakpoint(tablet) {
+		margin: 0;
+		display: inline-block;
+	}
 	&.sm { background-image: url('/assets/images/logo/rwp_logo_200.png'); }
 	&.large { background-image: url('/assets/images/logo/rwp_logo_800.png'); }
 	&.xl { background-image: url('/assets/images/logo/rwp_logo_full.png'); }
 	&:before{
 		content: '';
-		padding-bottom: 25.5%;
+		padding-bottom: $navigational-padding;
 		display: block;
 	}
 }
 
 nav {
-	// 100% full width - 200px logo width - (10px * 2) padding width
-	width: calc(100% - 200px - 20px);
-	text-align: right;
+	width: 100%;
+	text-align: center;
+	margin: 10px 0;
+	@include breakpoint(tablet) {
+		margin: 0px;
+		// 100% full width - 200px logo width - (10px * 2) padding width
+		width: calc(100% - 200px - 20px);
+		text-align: right;
+	}
 	a {
 		$transition_speed_nav_a: 400ms;
 		color: $nav-default;
@@ -52,8 +73,4 @@ nav {
 			}
 		}
 	}
-}
-header {
-	padding: 10px;
-	background: #000;
 }

@@ -14,3 +14,13 @@
 				</nav>
 			</div>
 		</header>
+		<?php # TODO: MAKE SIZE CLASS CONFIGURABLE ?>
+		<section class="hero standard">
+			<?php 
+				if ($data['template']) {
+					include('templates/heroes/' . $data['template'] . '.php');
+				} else {
+					include('templates/heroes/404.php');
+				}
+			?>	
+		</section>

@@ -10,18 +10,18 @@
   if ($data == NULL) {
     http_response_code(404);
   }
-  # Only show debug stuff locally
-  if ($_SERVER['HTTP_HOST'] && $config['debug']) {
-    include('templates/partials/_debug.php');
-  }
 
   include('templates/partials/_header.php');
 
   if ($data == NULL) {
     echo '404...';
   } else {
-    echo 'has page content...';
+    include('templates/main/' . $data['template'] . '.php');
   }
 
   include('templates/partials/_footer.php');
 
+  # Only show debug stuff locally
+  if ($_SERVER['HTTP_HOST'] && $config['debug']) {
+    include('templates/partials/_debug.php');
+  }

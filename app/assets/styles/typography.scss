@@ -5,5 +5,13 @@
 	font-weight: 400;
 }
 
-.light { font-weight: 300; }
-.bold { font-weight: 600; }
+p {
+	font-size: 1.1em;
+	line-height: 1.5em;
+	@include breakpoint(desktop-wide) {
+		font-size: 1.3em;
+		line-height: 1.8em;
+	}
+}
+.light, .light * { font-weight: 300; }
+.bold, .bold * { font-weight: 600; }
