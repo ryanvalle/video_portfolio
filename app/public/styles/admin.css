@@ -1,0 +1,17 @@
+body.admin header {
+  background: #000;
+  padding: 10px;
+  position: relative; }
+  body.admin header .logo {
+    width: 100px; }
+  body.admin header ul {
+    margin: 0;
+    padding: 0; }
+    body.admin header ul li {
+      color: #fff;
+      display: inline-block;
+      vertical-align: middle; }
+  body.admin header nav {
+    width: calc(100% - 140px); }
+
+/*# sourceMappingURL=admin.css.map */

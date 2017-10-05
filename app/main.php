@@ -3,9 +3,13 @@
 	require_once('config/globals.php');
 	require_once('config/mysql.php');
 	require_once('helpers/mysql.php');
-	require_once('helpers/template_helpers.php');
+  require_once('helpers/template_helpers.php');
+  require_once('helpers/response_helpers.php');
+  require_once('helpers/request_helpers.php');
 
   $URL = parse_url($_SERVER['REQUEST_URI']);
+  require_once('routes.php');
+
   $data = get_page_by_slug($URL['path']);
   if ($data == NULL) {
     http_response_code(404);

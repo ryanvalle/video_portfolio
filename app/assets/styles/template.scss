@@ -1,3 +1,4 @@
+@import 'mixins/colors.scss';
 @import 'mixins/responsiveness.scss';
 
 .constrain {
@@ -7,4 +8,13 @@
 		width: 100%;
 		max-width: 1200px;
 	}
+}
+
+.full-constrain {
+	padding: 10px;
+	width: 100%;
+}
+
+.border-bottom {
+	border-bottom: 1px solid $gray;
 }

@@ -41,6 +41,9 @@ a {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; }
+
 p {
   font-size: 1.1em;
   line-height: 1.5em; }
@@ -55,6 +58,9 @@ p {
 .bold, .bold * {
   font-weight: 600; }
 
+.text-center {
+  text-align: center; }
+
 .constrain {
   margin: 0 auto;
   padding: 0 10px; }
@@ -62,6 +68,13 @@ p {
     .constrain {
       width: 100%;
       max-width: 1200px; } }
+
+.full-constrain {
+  padding: 10px;
+  width: 100%; }
+
+.border-bottom {
+  border-bottom: 1px solid #DDDDDD; }
 
 header {
   position: absolute;
