@@ -14,8 +14,10 @@
 		$keys = array();
 		$values = array();
 		foreach ($data as $key => $value) {
-			array_push($keys, $key);
-			array_push($values, "\"" . $conn->real_escape_string($value) . "\"");
+			if ($key != 'token') {
+				array_push($keys, $key);
+				array_push($values, "\"" . $conn->real_escape_string($value) . "\"");
+			}
 		}
 		$key_str = "(" . implode(', ',$keys) . ")";
 		$value_str = "(" . implode(', ',$values) . ")";

@@ -31,7 +31,10 @@
 			background: rgba(0,0,0,0.4);
 		}
 	}
-	&.to-gold-bg:hover{
-		background-color: $gold;
+	&.light-opaque {
+		background: rgba(0,0,0,0.1);
+		color: #111
 	}
+	&.to-gold-bg{ transition: background 200ms; }
+	&.to-gold-bg:hover{ background-color: $gold; }
 }

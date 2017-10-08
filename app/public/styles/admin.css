@@ -13,5 +13,50 @@ body.admin header {
       vertical-align: middle; }
   body.admin header nav {
     width: calc(100% - 140px); }
+body.admin section .get-video {
+  text-align: center; }
+body.admin section .get-video, body.admin section .add-video {
+  border-bottom: 1px solid #DDDDDD;
+  border-top: 1px solid #DDDDDD;
+  padding: 20px 0; }
+  body.admin section .get-video input, body.admin section .get-video label, body.admin section .get-video textarea, body.admin section .add-video input, body.admin section .add-video label, body.admin section .add-video textarea {
+    font-size: 1.1em;
+    display: inline-block;
+    width: 90%;
+    padding: 10px; }
+  body.admin section .get-video button, body.admin section .add-video button {
+    font-size: 1.1em; }
+    body.admin section .get-video button:disabled, body.admin section .add-video button:disabled {
+      opacity: 0.5; }
+  @media (min-width: 601px) {
+    body.admin section .get-video input, body.admin section .add-video input {
+      width: 300px; } }
+  @media (min-width: 768px) {
+    body.admin section .get-video input, body.admin section .add-video input {
+      width: 500px; } }
+body.admin section .add-video input, body.admin section .add-video textarea, body.admin section .add-video label {
+  width: 100%; }
+body.admin section .add-video label {
+  text-align: left;
+  color: #aaa;
+  font-size: 0.9em;
+  padding: 0; }
+  body.admin section .add-video label.dark-label {
+    color: #000; }
+body.admin section fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1em; }
+  body.admin section fieldset.inline-labels input, body.admin section fieldset.inline-labels label {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto; }
+body.admin section .thumbnail-preview {
+  width: 300px; }
+  body.admin section .thumbnail-preview img {
+    width: 100%; }
+body.admin section .error-messages {
+  text-align: left;
+  color: #f00; }
 
 /*# sourceMappingURL=admin.css.map */

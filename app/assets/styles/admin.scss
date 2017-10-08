@@ -1,3 +1,6 @@
+@import 'mixins/responsiveness.scss';
+@import 'mixins/colors.scss';
+
 body.admin {
 	header {
 		background: #000;
@@ -16,6 +19,61 @@ body.admin {
 		}
 		nav {
 			width: calc(100% - 140px);
+		}
+	}
+
+	section {
+		.get-video { text-align: center; }
+		.get-video, .add-video {
+			border-bottom: 1px solid $gray;
+			border-top: 1px solid $gray;
+			padding: 20px 0;
+		 	input, label, textarea {
+		 		font-size: 1.1em;
+		 		display: inline-block;
+		 		width: 90%;
+		 		padding: 10px;
+		 	}
+		 	button {
+		 		font-size: 1.1em;
+		 		&:disabled { opacity: 0.5; }
+		 	}
+			@include breakpoint(tablet) {
+				input { width: 300px; }
+			}
+			@include breakpoint(tablet-wide) {
+				input { width: 500px; }
+			}
+		}
+		.add-video {
+			input, textarea, label { width: 100%; }
+			label {
+				text-align: left;
+				color: #aaa;
+				font-size: 0.9em; 
+				padding: 0;
+				&.dark-label {
+					color: #000;
+				}
+			}
+		}
+		fieldset {
+			border: 0; padding: 0; margin: 0 0 1em;
+			&.inline-labels {
+				input, label {
+					display: inline-block;
+					vertical-align: middle;
+					width: auto;
+				}
+			}
+		}
+		.thumbnail-preview {
+			width: 300px;
+			img { width: 100%; }
+		}
+		.error-messages {
+			text-align: left;
+			color: #f00;
 		}
 	}
 }

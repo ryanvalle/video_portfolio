@@ -3,6 +3,8 @@
 		<title>Admin | Randy Witt Productions</title>
 		<link href="/public/styles/application.css" rel="stylesheet" type="text/css" />
 		<link href="/public/styles/admin.css" rel="stylesheet" type="text/css" />
+		<script src="/public/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="/public/scripts/ckeditor.js" type="text/javascript"></script>
 	</head>
 	<body class="admin">
 		<header>

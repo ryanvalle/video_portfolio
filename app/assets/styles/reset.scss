@@ -1,6 +1,6 @@
 * {
 	box-sizing: border-box;
-	transition: all 200ms;
+	// transition: all 200ms;
 }
 body, html {
 	margin: 0;
@@ -12,3 +12,5 @@ a {
 	transition: background-color 200ms, color 200ms;
 	font-weight: 300;
 }
+
+button { cursor: pointer; }

@@ -14,7 +14,7 @@
  	 *		- Success: saved object
  	 * 		- Error: error object
  	*/
-	$data = json_decode(file_get_contents('php://input'), true);
+	$data = $_POST;
 
 	if ( !isset($data['token'])) {
 		// todo validate token...
@@ -26,31 +26,41 @@
 		$url = $data['url'];
 		$parsed_url = parse_url($url);
 
-		if ( strpos($parsed_url['host'], 'vimeo') !== false ) {
+		if ( array_key_exists('host',$parsed_url) && strpos($parsed_url['host'], 'vimeo') !== false ) {
 			$oembed_endpoint = 'http://vimeo.com/api/oembed';
 			$json_url = $oembed_endpoint . '.json?url=' . rawurlencode($url) . '&maxwidth=1920';
-
 			$resp = http_get($json_url);
-			$save_data = array(
-				'url' => $url,
-				'iframe' => $resp->html,
-				'title' => $resp->title,
-				'thumbnail' => $resp->thumbnail_url,
-				'description' => $resp->description,
-				'video_id' => $resp->video_id,
-				'provider' => 'vimeo'
-			);
+			error_log(gettype($resp))	;
+			if (gettype($resp) == "object") {
+				$save_data = array(
+					'url' => $url,
+					'iframe' => $resp->html,
+					'title' => $resp->title,
+					'thumbnail' => $resp->thumbnail_url,
+					'description' => $resp->description,
+					'video_id' => $resp->video_id,
+					'provider' => 'vimeo'
+				);
 
-			if ($data['save'] == true) {
-				$save = save_to_db("videos", $save_data);
-			} else {
 				$save = array(
 					'status' => 200,
 					'data' => $save_data
 				);
+			} else {
+				http_response_code(403);
+				$save = array(
+					'status' => 403,
+					'message' => 'Unable to get video. Please check video permissions for ' . $url . '.'
+				);
 			}
-			echo json_encode($save);
+		} else {
+			http_response_code(400);
+			$save = array(
+				'status' => 400,
+				'message' => 'Bad URL submitted.'
+			);
 		}
+		echo json_encode($save);
 	}
 
 	exit();
