@@ -9,6 +9,15 @@
 		return $result;
 	}
 
+	function get_videos($featured) {
+		global $conn;
+		$feat = $featured ? ' WHERE featured != 0' : '';
+		$sql = "SELECT * FROM videos" . $feat;
+		$result = [];
+		if ($query = $conn->query($sql)) { $result = $query; }
+		return $result;
+	}
+
 	function save_to_db($table, $data) {
 		global $conn;
 		$keys = array();

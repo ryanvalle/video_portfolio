@@ -1,2 +1,4 @@
 app/config/mysql.php
 .sass-cache
+
+app/public/assests/
