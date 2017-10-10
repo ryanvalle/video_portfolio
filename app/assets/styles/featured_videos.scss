@@ -9,7 +9,7 @@
 	.videos {
 		.video-select{
 			display: inline-block;
-			width: calc(33% - 2px);
+			width: calc(33.333% - 2px);
 			margin: 0 1px 1px;
 			vertical-align: top;
 			position: relative;
@@ -27,7 +27,6 @@
 				height: 100%;
 				position: absolute;
 				top: 0; left: 0;
-				border: 1px solid red;
 			}
 		}
 	}
