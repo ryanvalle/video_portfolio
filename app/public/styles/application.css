@@ -222,7 +222,7 @@ nav {
       height: 700px; } }
   @media (min-width: 1377px) {
     .hero.standard {
-      height: 900px; } }
+      height: 800px; } }
   .hero h1 {
     text-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
     font-size: 1.5em;
@@ -269,10 +269,11 @@ nav {
   list-style: none;
   margin: 0;
   padding: 0; }
+.featured-videos .videos ul {
+  display: flex;
+  flex-wrap: wrap; }
 .featured-videos .videos .video-select {
-  display: inline-block;
-  width: calc(33.333% - 2px);
-  margin: 0 1px 1px;
+  width: 33.333%;
   vertical-align: top;
   position: relative;
   background-size: cover;
@@ -289,5 +290,7 @@ nav {
     position: absolute;
     top: 0;
     left: 0; }
+    .featured-videos .videos .video-select a.video-link:hover {
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=application.css.map */

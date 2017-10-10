@@ -7,10 +7,9 @@
 		margin: 0; padding: 0;
 	}
 	.videos {
+		ul { display: flex; flex-wrap: wrap;}
 		.video-select{
-			display: inline-block;
-			width: calc(33.333% - 2px);
-			margin: 0 1px 1px;
+			width: 33.333%;
 			vertical-align: top;
 			position: relative;
 			background-size: cover;
@@ -27,6 +26,9 @@
 				height: 100%;
 				position: absolute;
 				top: 0; left: 0;
+				&:hover {
+					box-shadow: 2px 2px 5px rgba(0,0,0,0.2)
+				}
 			}
 		}
 	}
