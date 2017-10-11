@@ -1,7 +1,8 @@
 @import 'mixins/colors.scss';
 @import 'mixins/responsiveness.scss';
 
-.featured-videos {
+.featured-videos, .testimonial-videos {
+	padding: 0 0 0.5em;
 	ul, li {
 		list-style: none;
 		margin: 0; padding: 0;
@@ -9,11 +10,20 @@
 	.videos {
 		ul { display: flex; flex-wrap: wrap;}
 		.video-select{
-			width: 33.333%;
+			width: 100%;
 			vertical-align: top;
 			position: relative;
 			background-size: cover;
 			background-position: center;
+			overflow: hidden;
+			margin: 0 0 5px;
+			@include breakpoint(tablet) {
+				width: 50%;
+				margin: 0;
+			}
+			@include breakpoint(tablet-wide) {
+				width: 33.3333%;
+			}
 			&:before{
 				position: relative;
 				padding-bottom: 56.25%;
@@ -26,8 +36,71 @@
 				height: 100%;
 				position: absolute;
 				top: 0; left: 0;
-				&:hover {
-					box-shadow: 2px 2px 5px rgba(0,0,0,0.2)
+				&:not([data-play-type="modal"]) {
+					&:before {
+						content: attr(data-title);
+						display: block;
+						position: absolute;
+						width: 100%;
+						text-align: center;
+						bottom: 0;
+						padding: 5px;
+						background: rgba(186,146,53,0.7);
+						font-size: .9em;
+						color: #fff;
+						text-shadow: 2px 1px 2px #000;
+						font-weight: 600;
+					}
+					@include breakpoint(tablet) {
+						&:before {
+							content: attr(data-title);
+							position: absolute;
+							top: 100%;
+							bottom: auto;
+							transform: translateY(-50%);
+							width: 100%;
+							padding: 10px;
+							box-sizing: border-box;
+							text-align: center;
+							opacity: 0;
+							z-index: 2;
+							transition: top 200ms, opacity 200ms;
+							background: rgba(186,146,53,0);
+							@include breakpoint(desktop) {
+								font-size: 1.2em;
+							}
+						}
+						&:after {
+							content: '';
+							position: absolute;
+							top: 100%;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							opacity: 0;
+							z-index: 1;
+							background: rgba(186,146,53,0.7);
+							transition: top 200ms, opacity 200ms;
+						}
+					}
+					&:hover {
+						box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+						@include breakpoint(tablet) {
+							&:before { top: 50%; opacity: 1; }
+							&:after { top: 0%; opacity: 1; }
+						}
+					}
+				}
+			}
+		}
+		&.constrain {
+			padding: 10px 0;
+			.video-select {
+				margin: 10px;
+				width: calc(100% - 20px);
+				@include breakpoint(tablet) {
+					margin: 0 10px;
+					width: calc(33.3333% - 20px);
 				}
 			}
 		}

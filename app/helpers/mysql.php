@@ -9,10 +9,18 @@
 		return $result;
 	}
 
-	function get_videos($featured) {
+	function get_videos($type) {
 		global $conn;
-		$feat = $featured ? ' WHERE featured != 0' : '';
-		$sql = "SELECT * FROM videos" . $feat;
+		$selector = '';
+		switch ($type) {
+			case 'featured':
+				$selector = ' WHERE feature_tag="feat" OR feature_tag="feat_ex" ORDER BY priority ASC';
+				break;
+			case 'testimonials':
+				$selector = ' WHERE feature_tag="testim" ORDER BY priority ASC LIMIT 3';
+				break;
+		}
+		$sql = "SELECT * FROM videos" . $selector;
 		$result = [];
 		if ($query = $conn->query($sql)) { $result = $query; }
 		return $result;

@@ -3,6 +3,8 @@
 # https://vimeo.com/227173715 -> 403
 # https://vimeo.com/221817702 -> 200 - iframe restriction
 # https://vimeo.com/217057200
+# https://vimeo.com/235651192
+# https://vimeo.com/61654307
 ?>
 <section>
 	<div class="add-video hidden">
@@ -18,8 +20,13 @@
 					<textarea id="video-description"></textarea>
 				</fieldset>
 				<fieldset class="inline-labels">
-					<label for="video-featured" class="dark-label">Featured Video</label>
-					<input type="checkbox" id="video-featured">
+					<label for="video-featured" class="dark-label">Feature In:</label>
+					<select id="video-featured">
+						<option value="std">Standard (Portfolio Page Only Video)</option>
+						<option value="feat">Featured (Homepage &amp; Portfolio Page Only)</option>
+						<option value="feat_ex">Feature Exclusive (Homepage Page Only)</option>
+						<option value="testim">Testimonial (Testimonial Section Only)</option>
+					</select>
 				</fieldset>
 				<!-- TODO: NEEDS VIDEO TAG SELECTOR -->
 				<div class="thumbnail-preview">
@@ -117,7 +124,7 @@
 					'iframe': videoData.iframe, 
 					'thumbnail': videoData.thumbnail,
 					'provider': videoData.provider,
-					'featured': $('#video-featured').is(':checked') ? 1 : 0,
+					'feature_tag': $('#video-featured').val(),
 					'video_id': videoData.video_id,
 					'token': generateToken()
 				};

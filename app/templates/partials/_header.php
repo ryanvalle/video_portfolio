@@ -2,6 +2,8 @@
 	<head>
 		<title><?php echo get_page_title($data); ?></title>
 		<link href="/public/styles/application.css" rel="stylesheet" type="text/css" />
+		<script src="/public/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 		<header>
