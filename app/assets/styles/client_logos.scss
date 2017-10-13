@@ -1,0 +1,7 @@
+@import 'mixins/colors.scss';
+@import 'mixins/responsiveness.scss';
+
+.client-logos {
+	height: 3em;
+	.slide { display: inline-block; vertical-align: middle; }
+}

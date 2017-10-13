@@ -72,9 +72,16 @@ p, li {
 .text-right {
   text-align: right; }
 
+.text-left {
+  text-align: left; }
+
+section.gray-block {
+  background: #eee; }
+
 .constrain {
   margin: 0 auto;
-  padding: 0 10px; }
+  padding: 0 10px;
+  overflow: hidden; }
   @media (min-width: 1024px) {
     .constrain {
       width: 100%;
@@ -206,6 +213,9 @@ nav {
     transition: background 200ms; }
   .button.to-gold-bg:hover {
     background-color: #CB9B41; }
+  .button.no-side-margin {
+    margin-left: 0;
+    margin-right: 0; }
 
 .hero {
   padding-top: 110px;
@@ -370,9 +380,48 @@ nav {
           width: calc(33.3333% - 20px); } }
 
 .what-people-say {
-  background-color: #eee;
   padding: 0.75em 0; }
   .what-people-say h2 {
     margin: 0; }
+
+.client-logos {
+  height: 3em; }
+  .client-logos .slide {
+    display: inline-block;
+    vertical-align: middle; }
+
+.contact-form .contact-form-wrapper input, .contact-form .contact-form-wrapper textarea, .contact-form .contact-form-wrapper button {
+  outline: 0; }
+.contact-form .contact-form-wrapper input, .contact-form .contact-form-wrapper textarea {
+  font-size: 1em;
+  border-radius: 5px;
+  border: #ccc 1px solid;
+  padding: 5px; }
+  .contact-form .contact-form-wrapper input::placeholder, .contact-form .contact-form-wrapper textarea::placeholder {
+    color: #ccc; }
+.contact-form .contact-form-wrapper input {
+  width: 100%;
+  margin: 5px 2.5px 0; }
+.contact-form .contact-form-wrapper textarea {
+  margin: 5px 0;
+  width: 100%;
+  height: 150px;
+  resize: none; }
+.contact-form .contact-form-wrapper button {
+  width: 100%; }
+@media (min-width: 601px) {
+  .contact-form .contact-form-wrapper input, .contact-form .contact-form-wrapper textarea {
+    font-size: 1.2em;
+    border-radius: 10px;
+    padding: 10px; }
+  .contact-form .contact-form-wrapper input {
+    width: calc(50% - 10px); }
+  .contact-form .contact-form-wrapper textarea {
+    width: calc(100% - 10px); }
+  .contact-form .contact-form-wrapper button {
+    width: 200px; } }
+@media (min-width: 1377px) {
+  .contact-form .contact-form-wrapper button {
+    width: 250px; } }
 
 /*# sourceMappingURL=application.css.map */

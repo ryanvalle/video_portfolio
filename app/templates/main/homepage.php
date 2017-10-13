@@ -1,7 +1,9 @@
+
 <?php
 	// Get Videos
 	$featured_videos = get_videos('featured');
 	$testimonials = get_videos('testimonials');
+	array_push($additional_scripts, 'slick.min.js');
 ?>
 <section class="text-blob">
 	<div class="constrain border-bottom">
@@ -25,13 +27,54 @@
 </section>
 <?php } ?>
 
-<section class="what-people-say testimonial-videos">
-	<div class="text-center"><h2>What People Say About Us</h2>
-		<div class="videos constrain text-center">
-			<ul>
-				<?php while($video = $testimonials->fetch_assoc())
-					{ ?><li class="video-select" style="background-image: url(<?php echo $video['thumbnail']; ?>)">
-						<a class="video-link" data-play-type="modal" href="/video/<?php echo $video['slug']; ?>" data-title="<?php echo $video['title']; ?>"></a>
-					</li><?php } ?>
-			</ul>
+<section class="what-people-say testimonial-videos gray-block">
+	<div class="text-center"><h2>What People Say About Us</h2></div>
+	<div class="videos constrain text-center">
+		<ul>
+			<?php while($video = $testimonials->fetch_assoc())
+				{ ?><li class="video-select" style="background-image: url(<?php echo $video['thumbnail']; ?>)">
+					<a class="video-link" data-play-type="modal" href="/video/<?php echo $video['slug']; ?>" data-title="<?php echo $video['title']; ?>"></a>
+				</li><?php } ?>
+		</ul>
+	</div>
+	<div class="constrain">
+		<p> todo:: programmable logos...</p>
+		<div class="client-logos slider">
+			<div class="slide"><a href="#"><img src="assets/images/placeholder/vedc_placeholder.png"/></a></div>
+		</div>
+	</div>
 </section>
+
+<?php include('templates/partials/_contact_form.php'); ?>
+
+<script>
+	$(function() {
+		var els = $('.client-logos .slide').length;
+		$('.client-logos').slick({
+      slidesToShow: setSlidesVisible(els, 6),
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+      dots: false,
+      pauseOnHover: false,
+      responsive: [
+	      {
+	        breakpoint: 1024,
+	        settings: { slidesToShow: setSlidesVisible(els, 5) }
+	      }, {
+	        breakpoint: 768,
+	        settings: { slidesToShow: setSlidesVisible(els, 4) }
+	      }, {
+	        breakpoint: 600,
+	        settings: { slidesToShow: setSlidesVisible(els, 2) }
+	      }
+      ]
+    });
+
+    function setSlidesVisible(els, max) {
+    	return els < max ? els : max;
+    }
+	})
+
+</script>

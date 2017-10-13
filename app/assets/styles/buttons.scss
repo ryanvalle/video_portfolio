@@ -37,4 +37,5 @@
 	}
 	&.to-gold-bg{ transition: background 200ms; }
 	&.to-gold-bg:hover{ background-color: $gold; }
+	&.no-side-margin{ margin-left: 0; margin-right: 0;}
 }

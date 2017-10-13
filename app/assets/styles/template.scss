@@ -1,9 +1,14 @@
 @import 'mixins/colors.scss';
 @import 'mixins/responsiveness.scss';
 
+section {
+	&.gray-block { background: #eee; }
+}
+
 .constrain {
 	margin: 0 auto;
 	padding: 0 10px;
+	overflow: hidden;
 	@include breakpoint(desktop) {
 		width: 100%;
 		max-width: 1200px;
