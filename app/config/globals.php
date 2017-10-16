@@ -2,7 +2,8 @@
 	$additional_scripts = [];
 	# DB CONNECTION FOR CLEARDB DATABASE - DEVELOPMENT
 	$config = array(
-		'debug' => true
+		'debug' => true,
+		'contact_email' => 'rwptest@mailinator.com'
 	);
 
 	$navigation = array(

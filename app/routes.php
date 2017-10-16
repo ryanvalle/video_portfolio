@@ -6,9 +6,16 @@
     case '/_admin/video_save':
       include('lib/video_save.php');
       break;
+    case '/_contact':
+      include('lib/contact.php');
+      break;
+    case '/_info':
+      phpinfo();
+      break;
   }
 
   if ( strpos($URL['path'], '/_admin') !== false ) {
   	include('admin.php');
   	exit();
   }
+
