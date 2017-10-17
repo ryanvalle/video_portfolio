@@ -27,7 +27,7 @@
 </section>
 <?php } ?>
 
-<section class="what-people-say testimonial-videos gray-block">
+<section class="what-people-say testimonial-videos gray-block section-padding">
 	<div class="text-center"><h2>What People Say About Us</h2></div>
 	<div class="videos constrain text-center">
 		<ul>

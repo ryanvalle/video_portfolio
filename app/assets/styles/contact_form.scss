@@ -2,6 +2,7 @@
 @import 'mixins/responsiveness.scss';
 
 .contact-form {
+	padding-bottom: 20px;
 	.contact-form-wrapper {
 		input, textarea, button { outline: 0; }
 		input, textarea {

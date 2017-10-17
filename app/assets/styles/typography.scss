@@ -1,3 +1,4 @@
+@import 'mixins/colors.scss';
 @import 'mixins/responsiveness.scss';
 
 * {
@@ -28,3 +29,8 @@ p, li {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .text-left { text-align: left; }
+
+.to-gold {
+	transition: color 200ms;
+	&:hover { color: $gold; }
+}

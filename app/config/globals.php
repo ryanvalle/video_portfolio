@@ -7,8 +7,8 @@
 	);
 
 	$navigation = array(
-		'portfolio' => array('url' => '/portfolio', 'title' => 'Portfolio'),
 		'about' => array('url' => '/about', 'title' => 'About'),
+		'portfolio' => array('url' => '/portfolio', 'title' => 'Portfolio'),
 		'contact' => array('url' => '/contact-us', 'title' => 'Contact Us')
 	);
 	

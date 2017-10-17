@@ -8,6 +8,7 @@
   require_once('helpers/request_helpers.php');
 
   $URL = parse_url($_SERVER['REQUEST_URI']);
+  $header_type = 'small-header';
   require_once('routes.php');
 
   $data = get_page_by_slug($URL['path']);

@@ -1,0 +1,58 @@
+@import 'mixins/colors.scss';
+@import 'mixins/constants.scss';
+@import 'mixins/responsiveness.scss';
+
+footer {
+	color: #fff;
+	background: #000;
+	padding: 10px;
+	font-size: 0.75em;
+	@include breakpoint(tablet-wide) { font-size: 0.85em; }
+	a {
+		color: #fff;
+		margin: 0 4px 0 0;
+		&:not(:last-child) {
+			&:after {
+				content: '|';
+				margin: 0 0 0 8px;
+				color: #fff;
+			}
+		}
+	}
+	.contents {
+		.half-width {
+			display: inline-block;
+			vertical-align: top;
+			width: 100%;
+			text-align: center;
+			@include breakpoint(tablet) {
+				&:first-child { width: 220px; }
+				&:last-child { width: calc(99% - 220px); }
+				&.text-left { text-align: left; }
+				&.text-right { text-align: right; }
+			}
+		}
+		.address-and-phone {
+			white-space: nowrap;
+			.address {
+				margin-right: 20px;
+				margin-top: 5px;
+				@include breakpoint(tablet) {
+					margin-right: 10px;
+					margin-top: 0;
+				}
+				@include breakpoint(tablet-wide) { margin-right: 20px; }
+			}
+			.address, .phone {
+				display: inline-block;
+				vertical-align: middle;
+				span { display: block; }
+			}
+		}
+	}
+	.copyright {
+		border-top: 1px solid #ccc;
+		padding-top: 5px;
+		margin-top: 5px;
+	}
+}

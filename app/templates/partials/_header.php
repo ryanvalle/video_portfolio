@@ -17,7 +17,7 @@
 			</div>
 		</header>
 		<?php # TODO: MAKE SIZE CLASS CONFIGURABLE ?>
-		<section class="hero standard">
+		<section class="hero <?php echo $header_type; ?>">
 			<?php 
 				if ($data['template']) {
 					include('templates/heroes/' . $data['template'] . '.php');

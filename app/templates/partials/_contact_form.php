@@ -20,11 +20,11 @@
 			e.preventDefault();
 			var $form = $(this);
 			var data = {
-				'Name': $form.find('#contact-form-name').val(),
-				'Phone': $form.find('#contact-form-phone').val(),
-				'Business': $form.find('#contact-form-business').val(),
-				'E-Mail': $form.find('#contact-form-email').val(),
-				'Message': $form.find('#contact-form-message').val(),
+				'name': $form.find('#contact-form-name').val(),
+				'phone': $form.find('#contact-form-phone').val(),
+				'business': $form.find('#contact-form-business').val(),
+				'email': $form.find('#contact-form-email').val(),
+				'message': $form.find('#contact-form-message').val(),
 			}
 
 			$.ajax({

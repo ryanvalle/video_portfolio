@@ -16,10 +16,7 @@
 	@include breakpoint(tablet) {
 		padding-top: 90px;
 	}
-	&.small {
-		height: auto;
-	}
-	&.standard {
+	&.large-header {
 		@include breakpoint(tablet) {
 			height: 700px;
 		}
@@ -36,6 +33,15 @@
 		}
 		@include breakpoint(desktop-wide) {
 			font-size: 3.5em;
+		}
+	}
+	&.small-header {
+		height: auto;
+		h1 {
+			font-size: 1.5em;
+			@include breakpoint(tablet) {
+				font-size: 2em;
+			}
 		}
 	}
 	span {

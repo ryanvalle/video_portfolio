@@ -12,6 +12,9 @@
     case '/_info':
       phpinfo();
       break;
+    case '/':
+      $header_type = 'large-header';
+      break;
   }
 
   if ( strpos($URL['path'], '/_admin') !== false ) {
