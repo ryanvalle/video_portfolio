@@ -58,10 +58,8 @@ section {
 }
 
 .featured-media {
-	width: 100%;
+	display: none;
 	background: #ccc;
-	position: relative;
-	margin: 1.5em 0;
 	@include breakpoint(tablet) {
 		width: 55%;
 		max-width: 650px;

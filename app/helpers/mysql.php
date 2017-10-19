@@ -13,8 +13,11 @@
 		global $conn;
 		$selector = '';
 		switch ($type) {
+			case 'portfolio':
+				$selector = ' WHERE feature_tag!="feat_ex" OR feature_tag!="testim" ORDER BY priority ASC';
+				break;
 			case 'featured':
-				$selector = ' WHERE feature_tag="feat" OR feature_tag="feat_ex" ORDER BY priority ASC';
+				$selector = ' WHERE feature_tag="feat" OR feature_tag="feat_ex" ORDER BY feat_priority ASC';
 				break;
 			case 'testimonials':
 				$selector = ' WHERE feature_tag="testim" ORDER BY priority ASC LIMIT 3';

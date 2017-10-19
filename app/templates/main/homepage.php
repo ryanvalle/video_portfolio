@@ -16,7 +16,7 @@
 	<div class="constrain text-center">
 		<h2>Clients love our creativity, collaboration, customer service, and most of all, the results</h2>	
 	</div>
-	<div class="videos text-center">
+	<div class="videos gridify text-center">
 		<ul>
 		<?php while($video = $featured_videos->fetch_assoc())
 			{ ?><li class="video-select" style="background-image: url(<?php echo $video['thumbnail']; ?>)">
