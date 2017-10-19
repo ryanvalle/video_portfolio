@@ -30,6 +30,17 @@ p, li {
 .text-right { text-align: right; }
 .text-left { text-align: left; }
 
+.text-small {
+	margin: 0.3em auto;
+	font-size: 1em;
+	@include breakpoint(tablet) { font-size: 0.85em }
+	@include breakpoint(tablet-wide) { font-size: 1em }
+}
+
+.reduce-margin {
+	margin: 0.5em auto;
+}
+
 .to-gold {
 	transition: color 200ms;
 	&:hover { color: $gold; }

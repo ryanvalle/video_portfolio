@@ -46,4 +46,36 @@ section {
 	}
 }
 
+.column-layout {
+	.column {
+		padding: 10px;
+	}
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-wrap: nowrap;
+		.column { flex: 1; }
+	}
+}
+
+.featured-media {
+	width: 100%;
+	background: #ccc;
+	position: relative;
+	margin: 1.5em 0;
+	@include breakpoint(tablet) {
+		width: 55%;
+		max-width: 650px;
+		margin: 1.5em 0.85em;
+		&.float-right { float: right; }
+		&.float-left { float: left; }
+	}
+	&:after {
+		content: '';
+		display: block;
+		padding-bottom: 56.25%;
+		width: 100%;
+
+	}
+}
+
 .hidden { display: none; }
