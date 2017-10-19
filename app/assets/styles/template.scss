@@ -61,6 +61,7 @@ section {
 	display: none;
 	background: #ccc;
 	@include breakpoint(tablet) {
+		display: block;
 		width: 55%;
 		max-width: 650px;
 		margin: 1.5em 0.85em;

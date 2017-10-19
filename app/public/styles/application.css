@@ -145,6 +145,7 @@ section.section-padding {
   background: #ccc; }
   @media (min-width: 601px) {
     .featured-media {
+      display: block;
       width: 55%;
       max-width: 650px;
       margin: 1.5em 0.85em; }
