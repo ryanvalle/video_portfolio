@@ -1,5 +1,15 @@
 <?php
 
+	function get_categories() {
+		global $conn;
+		$sql = "SELECT * from categories ORDER BY display_order ASC";
+		$result = [];
+		if ($query = $conn->query($sql)) {
+			$result = $query;
+		}
+		return $result;
+	}
+
 	function get_page_by_slug($slug) {
 		global $conn;
 		$sql = "SELECT * FROM pages WHERE slug='".$slug."'";

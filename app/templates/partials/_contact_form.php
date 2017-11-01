@@ -8,7 +8,7 @@
 			<input type="email" placeholder="E-Mail" id="contact-form-email" required />
 			<textarea id="contact-form-message" placeholder="How can we help?"></textarea>
 			<div class="text-right">
-				<button class="button white gold-backgrounddark-opaque to-gold-bg no-side-margin">Submit</button>
+				<button class="button white gold-background dark-opaque to-gold-bg no-side-margin">Submit</button>
 			</form>
 		</form>
 	</div>

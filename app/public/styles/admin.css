@@ -47,6 +47,11 @@ body.admin section fieldset {
   border: 0;
   padding: 0;
   margin: 0 0 1em; }
+  body.admin section fieldset.inline-fieldsets {
+    display: inline-block;
+    vertical-align: middle; }
+    body.admin section fieldset.inline-fieldsets:after {
+      content: '|'; }
   body.admin section fieldset.inline-labels input, body.admin section fieldset.inline-labels label {
     display: inline-block;
     vertical-align: middle;

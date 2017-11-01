@@ -11,7 +11,7 @@
 	</div>
 </section>
 
-<?php if ( count($featured_videos->fetch_assoc()) > 0) { ?>
+<?php if ( $featured_videos->num_rows > 0) { ?>
 <section class="featured-videos">
 	<div class="constrain text-center">
 		<h2>Clients love our creativity, collaboration, customer service, and most of all, the results</h2>	

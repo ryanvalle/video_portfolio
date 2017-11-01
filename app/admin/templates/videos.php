@@ -1,10 +1,11 @@
 <?php
-# Sample urls
-# https://vimeo.com/227173715 -> 403
-# https://vimeo.com/221817702 -> 200 - iframe restriction
-# https://vimeo.com/217057200
-# https://vimeo.com/235651192
-# https://vimeo.com/61654307
+	# Sample urls
+	# https://vimeo.com/227173715 -> 403
+	# https://vimeo.com/221817702 -> 200 - iframe restriction
+	# https://vimeo.com/217057200
+	# https://vimeo.com/235651192
+	# https://vimeo.com/61654307
+	$categories = get_categories();
 ?>
 <section>
 	<div class="add-video hidden">
@@ -29,6 +30,17 @@
 					</select>
 				</fieldset>
 				<!-- TODO: NEEDS VIDEO TAG SELECTOR -->
+				<div class="video-tags">
+						<div class="dark-label">Video Types</div>
+						<?php while($cat = $categories->fetch_assoc())
+							{ ?>
+								<fieldset class="inline-labels inline-fieldsets">
+									<input id="video_type_<?php echo $cat['id']; ?>" type="checkbox" name="video_types[]" value="<?php echo $cat['id']; ?>" />
+									<label for="video_type_<?php echo $cat['id']; ?>" class="dark-label"><?php echo $cat['title']; ?></label>
+								</fieldset>
+						<?php } ?>
+
+				</div>
 				<div class="thumbnail-preview">
 					<label>Thumbnail Image Preview</label>
 					<img src="">
@@ -116,6 +128,11 @@
 
 	$('#confirm-save').on('click', function() {
 		var title = $('#video-title').val(),
+				video_types = $.map( $('.video-tags input[name="video_types[]"]'), function(el) {
+						if ($(el).is(':checked')) {
+							return parseInt($(el).val());
+						}
+					}),
 				submitData = {
 					'slug': slugify(title),
 					'title': title,
@@ -125,7 +142,8 @@
 					'thumbnail': videoData.thumbnail,
 					'provider': videoData.provider,
 					'feature_tag': $('#video-featured').val(),
-					'video_id': videoData.video_id,
+					'video_id': videoData.video_id + Date.now(),
+					'tags': video_types.join(),
 					'token': generateToken()
 				};
 
@@ -138,7 +156,7 @@
 						console.log(resp);
 					},
 					error: function(resp) {
-						console.log(resp);
+						console.log(resp.responseJSON);
 					}
 				})
 
