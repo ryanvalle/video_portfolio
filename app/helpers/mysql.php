@@ -19,6 +19,19 @@
 		return $result;
 	}
 
+	function get_video_by_slug($slug) {
+		global $conn;
+		$parsed_slug = array_values(array_filter(explode('/', $slug)));
+		if ($parsed_slug[0] == 'video') {
+			$sql = "SELECT * FROM videos WHERE slug='".$parsed_slug[1]."'";
+			if ($query = $conn->query($sql)) {
+				$result = $query->fetch_assoc();
+			}
+			if ($result) { $result['template'] = 'video_show'; }
+			return $result;
+		}
+	}
+
 	function get_videos($type) {
 		global $conn;
 		$selector = '';

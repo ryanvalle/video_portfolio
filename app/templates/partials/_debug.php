@@ -1,6 +1,5 @@
 <div class="debugger">
 	<ul>
-		<li>path: <?php var_dump($URL); ?></li>
-		<li><?php var_dump($categories); ?></li>
+		<li>path: <?php var_dump(array_values(array_filter(explode('/', $URL['path'])))); ?></li>
 	</ul>
 </div>

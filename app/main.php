@@ -12,6 +12,10 @@
   require_once('routes.php');
 
   $data = get_page_by_slug($URL['path']);
+  // Check if a video
+  if ($data == NULL) {
+    $data = get_video_by_slug($URL['path']);
+  }
   if ($data == NULL) {
     http_response_code(404);
   }

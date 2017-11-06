@@ -4,14 +4,12 @@
 ?>
 
 <?php if ( $videos->num_rows > 0) { ?>
-<section class="featured-videos">
+<section class="featured-videos portfolio-index">
 	<?php if ( $categories->num_rows > 0) { ?>
 	<div class="constrain filters">
-		<span>Filter By:</span>	
-		<div>
-			<?php while($cat = $categories->fetch_assoc()) { ?>
-				<button class="button white gold-background dark-opaque to-gold-bg no-side-margin" data-category-target="<?php echo $cat['id']; ?>"><?php echo $cat['title']; ?></button>
-			<?php } ?>
+		<span class="gray-text">Filter By:</span>	
+		<div class="text-center">
+			<?php while($cat = $categories->fetch_assoc()) { ?><button class="button gray gray-border transparent-bg dark-opaque to-gold-border to-gold-text no-side-margin oneline small-padding sm-bottom-margin active-state" data-category-target="<?php echo $cat['id']; ?>"><?php echo $cat['title']; ?></button><?php } ?>
 		</div>
 	</div>
 	<?php } ?>
@@ -29,14 +27,37 @@
 <script>
 	$('.filters button').on('click.filterVideos', function(e) {
 		e.preventDefault();
-		var catId = $(this).attr('data-category-target');
-		$('.video-select').addClass('hidden');
+		var $target = $(this),
+				isActive = $target.hasClass('active'),
+				catIds = [];
+		if (isActive) {
+			$target.removeClass('active');
+		} else {
+			$target.addClass('active');
+		}
+		if ($('.filters button.active').length == 0) {
+			$('.video-select').removeClass('hidden');
+		} else {
+			$('.video-select').addClass('hidden');
+		}
+		$.each($('.filters button'), function() {
+			if ($(this).hasClass('active')) {
+				var id = $(this).attr('data-category-target');
+				catIds.push(String(id));
+			}
+		})
+
 		$.each($('.video-select .video-link'), function() {
-			var strCatIds = $(this).attr('data-categories'),
+			var that = this,
+					strCatIds = $(this).attr('data-categories'),
 					currCatIds = strCatIds && strCatIds.split(',');
-			if ( currCatIds && currCatIds.indexOf(String(catId)) >= 0 ) {
-				console.log($(this).parent())
-				$(this).parent().removeClass('hidden');
+			console.log(currCatIds);
+			if (currCatIds) {
+				$.each(currCatIds, function(i,x) {
+					if (catIds.indexOf(String(x)) >= 0) {
+						$(that).parent().removeClass('hidden');
+					};
+				})
 			}
 		});
 	})

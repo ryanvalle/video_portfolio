@@ -1,0 +1,20 @@
+@import 'mixins/colors.scss';
+@import 'mixins/responsiveness.scss';
+
+.portfolio-index {
+	.filters {
+		padding-top: 10px;
+		padding-bottom: 20px;
+		button.button {
+			width: calc(50% - 10px);
+			margin: 5px;
+			font-size: 1em;
+			@include breakpoint(tablet) {
+				width: calc(25% - 10px);
+			}
+			@include breakpoint(tablet-wide) {
+				font-size: 1.15em;
+			}
+		}
+	}
+}

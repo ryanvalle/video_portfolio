@@ -1,0 +1,20 @@
+@import 'mixins/colors.scss';
+@import 'mixins/responsiveness.scss';
+
+.video-player-section {
+	position: relative;
+	top: -70px;
+	margin-bottom: -70px;
+	@include breakpoint(mobile) {
+		top: -40px;
+		margin-bottom: -40px;
+	}
+	@include breakpoint(tablet) {
+		top: -60px;
+		margin-bottom: -60px;
+	}
+	.video-player{
+		background: #fff;
+		box-shadow: 0 0 20px rgba(0,0,0,0.6);
+	}
+}
