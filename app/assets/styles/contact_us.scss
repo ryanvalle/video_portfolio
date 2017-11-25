@@ -1,0 +1,39 @@
+@import 'mixins/colors.scss';
+@import 'mixins/responsiveness.scss';
+
+.contact-information{
+	.constrain{
+		padding: 15px 0;
+		margin: 10px auto;
+		border-top: 1px solid $gray;
+		border-bottom: 1px solid $gray;
+		@include breakpoint(tablet) {
+			padding: 30px 0;
+			margin: 20px auto;
+			white-space: nowrap;
+		}
+		.address, .contacts{
+			display: inline-block;
+			padding: 5px 20px;
+			width: 100%;
+
+			
+			@include breakpoint(tablet) {
+				width: auto;
+				text-align: left;
+				padding: 0 30px;
+			}
+			@include breakpoint(tablet-wide) {
+				padding: 0 60px;
+			}
+			@include breakpoint(desktop) {
+				padding: 0 100px;
+			}
+			span{
+				display: block;
+				font-size: 1.1em;
+				line-height: 1.5em;
+			}
+		}
+	}
+}

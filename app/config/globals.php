@@ -3,7 +3,8 @@
 	# DB CONNECTION FOR CLEARDB DATABASE - DEVELOPMENT
 	$config = array(
 		'debug' => true,
-		'contact_email' => 'rwptest@mailinator.com'
+		'contact_email' => 'rwptest@mailinator.com',
+		'show_contact_form_header' => true
 	);
 
 	$navigation = array(

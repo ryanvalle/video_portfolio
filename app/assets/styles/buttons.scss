@@ -22,11 +22,16 @@
 		font-size: 1.75em;
 		border: 4px solid #fff;
 	}
+	&.dynamic-width { width: auto; }
 	&.small-padding{ padding: 5px; }
 	&.oneline{ white-space: nowrap;}
 	&.drop-shadow { text-shadow: 0 0 5px rgba(0,0,0,0.5); }
 	&.white {
 		color: #fff;
+	}
+	&.gold {
+		color: $gold;
+		border: 2px solid $gold;
 	}
 	&.gray {
 		color: $gray-two;
@@ -60,6 +65,10 @@
 		&:hover, &.active{
 			color: $gold;
 		}
+	}
+	&.to-gray-bg{
+		transition: background 200ms;
+		&:hover{ background-color: $light-gray; }
 	}
 	&.active-state{
 		&.active{

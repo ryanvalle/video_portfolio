@@ -54,7 +54,7 @@ h2 {
 
 p, li {
   font-size: 1.1em;
-  line-height: 1.5em; }
+  line-height: 1.7em; }
   @media (min-width: 1377px) {
     p, li {
       font-size: 1.3em;
@@ -253,6 +253,8 @@ nav {
       border-radius: 50px;
       font-size: 1.75em;
       border: 4px solid #fff; } }
+  .button.dynamic-width {
+    width: auto; }
   .button.small-padding {
     padding: 5px; }
   .button.oneline {
@@ -261,6 +263,9 @@ nav {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
   .button.white {
     color: #fff; }
+  .button.gold {
+    color: #CB9B41;
+    border: 2px solid #CB9B41; }
   .button.gray {
     color: #B1B1B1; }
   .button.gray-border {
@@ -283,6 +288,10 @@ nav {
     border-color: #CB9B41; }
   .button.to-gold-text:hover, .button.to-gold-text.active {
     color: #CB9B41; }
+  .button.to-gray-bg {
+    transition: background 200ms; }
+    .button.to-gray-bg:hover {
+      background-color: #f7f7f7; }
   .button.active-state.active {
     background-color: #f7f7f7; }
   .button.no-side-margin {
@@ -474,6 +483,36 @@ nav {
     display: inline-block;
     vertical-align: middle; }
 
+.contact-information .constrain {
+  padding: 15px 0;
+  margin: 10px auto;
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD; }
+  @media (min-width: 601px) {
+    .contact-information .constrain {
+      padding: 30px 0;
+      margin: 20px auto;
+      white-space: nowrap; } }
+  .contact-information .constrain .address, .contact-information .constrain .contacts {
+    display: inline-block;
+    padding: 5px 20px;
+    width: 100%; }
+    @media (min-width: 601px) {
+      .contact-information .constrain .address, .contact-information .constrain .contacts {
+        width: auto;
+        text-align: left;
+        padding: 0 30px; } }
+    @media (min-width: 768px) {
+      .contact-information .constrain .address, .contact-information .constrain .contacts {
+        padding: 0 60px; } }
+    @media (min-width: 1024px) {
+      .contact-information .constrain .address, .contact-information .constrain .contacts {
+        padding: 0 100px; } }
+    .contact-information .constrain .address span, .contact-information .constrain .contacts span {
+      display: block;
+      font-size: 1.1em;
+      line-height: 1.5em; }
+
 .contact-form {
   padding-bottom: 20px; }
   .contact-form .contact-form-wrapper input, .contact-form .contact-form-wrapper textarea, .contact-form .contact-form-wrapper button {
@@ -539,6 +578,17 @@ nav {
   .video-player-section .video-player {
     background: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); }
+
+.video-info {
+  padding-bottom: 20px; }
+  .video-info h1 {
+    margin-bottom: 0; }
+  .video-info .client {
+    display: block;
+    font-size: 1.2em;
+    color: #949494; }
+  .video-info .watch-more-cta {
+    margin-top: 20px; }
 
 footer {
   color: #fff;

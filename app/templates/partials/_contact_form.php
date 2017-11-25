@@ -1,6 +1,8 @@
 <section class="contact-form lets-get-started">
 	<div class="text-center constrain">
-		<h2>Let's Get Started</h2>
+		<?php if($config['show_contact_form_header']) { ?>
+			<h2>Let's Get Started</h2>
+		<?php } ?>
 		<form class="contact-form-wrapper">
 			<input type="text" placeholder="Name" id="contact-form-name" required />
 			<input type="tel" placeholder="Phone Number" id="contact-form-phone" required />
