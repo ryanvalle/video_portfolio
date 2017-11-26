@@ -12,6 +12,10 @@
 			'url' => '/_admin/videos',
 			'title' => 'Video Manager'
 		),
+		'logos' => array(
+			'url' => '/_admin/logos',
+			'title' => 'Logo Manager'
+		),
 	);
 
 	include('helpers/admin_helpers.php');

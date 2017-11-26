@@ -63,5 +63,29 @@ body.admin section .thumbnail-preview {
 body.admin section .error-messages {
   text-align: left;
   color: #f00; }
+body.admin section.logo-manager .logo-uploader {
+  margin: 10px 0;
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD; }
+  body.admin section.logo-manager .logo-uploader h2 {
+    margin: 10px; }
+body.admin section.logo-list table {
+  width: 100%;
+  border-collapse: collapse; }
+body.admin section.logo-list table, body.admin section.logo-list th, body.admin section.logo-list td {
+  border: 1px solid #DDDDDD; }
+body.admin section.logo-list th {
+  padding: 10px;
+  font-weight: 800;
+  border-bottom: 2px solid #949494; }
+body.admin section.logo-list tr, body.admin section.logo-list td {
+  padding: 5px;
+  text-align: center; }
+body.admin section.logo-list tbody tr:nth-child(odd) {
+  background-color: #f7f7f7; }
+body.admin section.logo-list thead tr {
+  background-color: #B1B1B1; }
+body.admin section.logo-list img {
+  width: 100px; }
 
 /*# sourceMappingURL=admin.css.map */

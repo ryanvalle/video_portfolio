@@ -2,6 +2,20 @@
 @import 'mixins/responsiveness.scss';
 
 .client-logos {
-	height: 3em;
-	.slide { display: inline-block; vertical-align: middle; }
+	height: 75px;
+	.slide {
+		display: inline-block;
+		vertical-align: top;
+		text-align: center;
+		a { 
+			display: block;
+			height: 75px; }
+		.client-logo{
+			height: 100%;
+			width: 100%;
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
 }

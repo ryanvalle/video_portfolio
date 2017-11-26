@@ -1,5 +1,16 @@
 <?php
 
+	function get_table_list($table, $query) {
+		global $conn;
+		$sql = "SELECT * from " . $table;
+		if ($query) { $sql = $sql . " " . $query; }
+		$result = [];
+		if ($query = $conn->query($sql)) {
+			$result = $query;
+		}
+		return $result;
+	}
+
 	function get_categories() {
 		global $conn;
 		$sql = "SELECT * from categories ORDER BY display_order ASC";
@@ -70,6 +81,29 @@
 		if ($query = $conn->query($sql)) {
 			return array(
 				'status' => 201,
+				'data' => $data
+			);
+		} else {
+			return array(
+				"status" => 400,
+				"error" => $conn->error,
+				"query" => $sql
+			);
+		}
+	}
+
+	function update_db($table, $data, $id) {
+		global $conn;
+		$sets = array();
+		foreach ($data as $key => $value) {
+			array_push($sets, $key . "='" . $value . "'");
+		}
+		$set = implode(', ', $sets);
+		$sql = "UPDATE " . $table  . " SET " . $set . " WHERE id=" . $id;
+
+		if ($query = $conn->query($sql)) {
+			return array(
+				'status' => 200,
 				'data' => $data
 			);
 		} else {

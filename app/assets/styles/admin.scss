@@ -82,5 +82,32 @@ body.admin {
 			text-align: left;
 			color: #f00;
 		}
+
+		&.logo-manager {
+			.logo-uploader {
+				margin: 10px 0;
+				border-top: 1px solid $gray;
+				border-bottom: 1px solid $gray;
+				h2 { margin: 10px; }
+			}
+		}
+		&.logo-list{
+			table{
+				width: 100%;
+				border-collapse: collapse;
+			}
+			table, th, td{ border: 1px solid $gray; }
+			th {
+				padding: 10px;
+				font-weight: 800;
+				border-bottom: 2px solid $dark-gray
+			}
+			tr, td{ padding: 5px; text-align: center; }
+			tbody tr:nth-child(odd) { background-color: $light-gray;}
+			thead tr{ background-color: $gray-two; }
+			img { width: 100px; }
+		}
 	}
+
+
 }

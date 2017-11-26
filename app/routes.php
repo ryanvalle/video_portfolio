@@ -6,6 +6,12 @@
     case '/_admin/video_save':
       include('lib/video_save.php');
       break;
+    case '/_admin/logo_save':
+      include('lib/logo_save.php');
+      break;
+    case '/_admin/update':
+      include('lib/update_db.php');
+      break;
     case '/_contact':
       include('lib/contact.php');
       break;
