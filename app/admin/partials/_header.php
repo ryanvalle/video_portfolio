@@ -10,9 +10,10 @@
 		<header>
 			<a class="logo" href="/" title="Randy Witt Productions"></a>
 			<nav>
-				<?php foreach ($admin_nav as $nav) { ?>
+				<?php foreach ($admin_nav as $nav) { 
+					if ($nav['active_nav']) { ?>
 						<a class="light" href="<?php echo $nav['url']; ?>"><?php echo $nav['title']; ?></a>
-					<?php } ?> 
+					<?php } }?> 
 			</nav>
 		</header>
 

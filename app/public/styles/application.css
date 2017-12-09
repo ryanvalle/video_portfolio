@@ -63,7 +63,7 @@ p, li {
 .light, .light * {
   font-weight: 300; }
 
-.bold, .bold * {
+strong, .bold, .bold * {
   font-weight: 600; }
 
 .text-center {
@@ -166,6 +166,9 @@ section.section-padding {
 
 .gray-text {
   color: #B1B1B1; }
+
+.padding-top-10 {
+  padding-top: 10px; }
 
 header {
   position: absolute;

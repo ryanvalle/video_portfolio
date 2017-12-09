@@ -69,23 +69,23 @@ body.admin section.logo-manager .logo-uploader {
   border-bottom: 1px solid #DDDDDD; }
   body.admin section.logo-manager .logo-uploader h2 {
     margin: 10px; }
-body.admin section.logo-list table {
+body.admin section.logo-list table, body.admin section .video-list table {
   width: 100%;
   border-collapse: collapse; }
-body.admin section.logo-list table, body.admin section.logo-list th, body.admin section.logo-list td {
+body.admin section.logo-list table, body.admin section.logo-list th, body.admin section.logo-list td, body.admin section .video-list table, body.admin section .video-list th, body.admin section .video-list td {
   border: 1px solid #DDDDDD; }
-body.admin section.logo-list th {
+body.admin section.logo-list th, body.admin section .video-list th {
   padding: 10px;
   font-weight: 800;
   border-bottom: 2px solid #949494; }
-body.admin section.logo-list tr, body.admin section.logo-list td {
+body.admin section.logo-list tr, body.admin section.logo-list td, body.admin section .video-list tr, body.admin section .video-list td {
   padding: 5px;
   text-align: center; }
-body.admin section.logo-list tbody tr:nth-child(odd) {
+body.admin section.logo-list tbody tr:nth-child(odd), body.admin section .video-list tbody tr:nth-child(odd) {
   background-color: #f7f7f7; }
-body.admin section.logo-list thead tr {
+body.admin section.logo-list thead tr, body.admin section .video-list thead tr {
   background-color: #B1B1B1; }
-body.admin section.logo-list img {
+body.admin section.logo-list img, body.admin section .video-list img {
   width: 100px; }
 
 /*# sourceMappingURL=admin.css.map */

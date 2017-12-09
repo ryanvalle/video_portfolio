@@ -15,8 +15,8 @@
 		<div class="description"><?php echo $data['description']; ?></div>
 	<?php } ?>
 
-	<div class="text-center">
-		<a class="button gold transparent-bg oneline dynamic-width to-gray-bg" href="<?php echo $navigation['portfolio']; ?>">Watch More Videos
+	<div class="text-center padding-top-10">
+		<a class="button gold transparent-bg oneline dynamic-width to-gray-bg" href="<?php echo $navigation['portfolio']['url']; ?>">Watch More Videos
 		</a>
 	</div>
 

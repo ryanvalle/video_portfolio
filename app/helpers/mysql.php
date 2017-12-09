@@ -30,6 +30,15 @@
 		return $result;
 	}
 
+	function get_video_by_id($id) {
+		global $conn;
+		$sql = "SELECT * FROM videos WHERE id='".$id."'";
+		if ($query = $conn->query($sql)) {
+			$result = $query->fetch_assoc();
+		}
+		return $result;
+	}
+
 	function get_video_by_slug($slug) {
 		global $conn;
 		$parsed_slug = array_values(array_filter(explode('/', $slug)));
@@ -48,13 +57,16 @@
 		$selector = '';
 		switch ($type) {
 			case 'portfolio':
-				$selector = ' WHERE feature_tag!="feat_ex" OR feature_tag!="testim" ORDER BY priority ASC';
+				$selector = ' WHERE (feature_tag!="feat_ex" OR feature_tag!="testim") AND feature_tag!="hide" ORDER BY priority ASC';
 				break;
 			case 'featured':
 				$selector = ' WHERE feature_tag="feat" OR feature_tag="feat_ex" ORDER BY feat_priority ASC';
 				break;
 			case 'testimonials':
 				$selector = ' WHERE feature_tag="testim" ORDER BY priority ASC LIMIT 3';
+				break;
+			default:
+				$selector = ' WHERE feature_tag!="hide" ORDER BY priority ASC';
 				break;
 		}
 		$sql = "SELECT * FROM videos" . $selector;
@@ -96,7 +108,9 @@
 		global $conn;
 		$sets = array();
 		foreach ($data as $key => $value) {
-			array_push($sets, $key . "='" . $value . "'");
+			if ($key != 'token') {
+				array_push($sets, $key . "='" . addslashes($value) . "'");
+			}
 		}
 		$set = implode(', ', $sets);
 		$sql = "UPDATE " . $table  . " SET " . $set . " WHERE id=" . $id;

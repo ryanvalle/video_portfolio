@@ -6,15 +6,23 @@
 	$admin_nav = array(
 		'home' => array(
 			'url' => '/_admin',
-			'title' => 'Admin Home'
+			'title' => 'Admin Home',
+			'active_nav' => true
 		),
 		'videos' => array(
 			'url' => '/_admin/videos',
-			'title' => 'Video Manager'
+			'title' => 'Video Manager',
+			'active_nav' => true
+		),
+		'videos_edit' => array(
+			'url' => '/admin/videos_edit',
+			'title' => 'Edit Video',
+			'active_nav' => false
 		),
 		'logos' => array(
 			'url' => '/_admin/logos',
-			'title' => 'Logo Manager'
+			'title' => 'Logo Manager',
+			'active_nav' => true
 		),
 	);
 

@@ -6,6 +6,7 @@
 	# https://vimeo.com/235651192
 	# https://vimeo.com/61654307
 	$categories = get_categories();
+	$videos = get_videos('all');
 ?>
 <section>
 	<div class="add-video hidden">
@@ -17,12 +18,17 @@
 					<input type="text" id="video-title">
 				</fieldset>
 				<fieldset>
+					<label for="video-client">Client</label>
+					<input type="text" id="video-client">
+				</fieldset>
+				<fieldset>
 					<label for="video-description">Description</label>
 					<textarea id="video-description"></textarea>
 				</fieldset>
 				<fieldset class="inline-labels">
 					<label for="video-featured" class="dark-label">Feature In:</label>
 					<select id="video-featured">
+						<option value="hide">None (Unpublished)</option>
 						<option value="std">Standard (Portfolio Page Only Video)</option>
 						<option value="feat">Featured (Homepage &amp; Portfolio Page Only)</option>
 						<option value="feat_ex">Feature Exclusive (Homepage Page Only)</option>
@@ -60,8 +66,34 @@
 	</div>
 </section>
 
+<section>
+	<div class="constrain video-list">
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>View Page</th>
+					<th>View Source</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php while($video = $videos->fetch_assoc())
+					{ ?>
+					<tr>
+						<td><?php echo $video['title']; ?></td>
+						<td><a href="/video/<?php echo $video['slug']; ?>" target="_blank">Visit Page</a></td>
+						<td><a href="<?php echo $video['url']; ?>" target="_blank">Visit Source</a></td>
+						<td><a href="/_admin/videos_edit?id=<?php echo $video['id']; ?>">Edit</a></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+	</div>
+</section>
+
 <script>
-	var videoData = {};
+	var videoData = {}, container = {};
 	$('#query-video').on('click', function() {
 		var url = $('.get-video input').val();
 		if (url && url != '') {
@@ -92,8 +124,10 @@
 					$addVideo.find('.video-player').html(video.iframe);
 					$addVideo.find('#video-title').val(video.title);
 					
-					var editor = ClassicEditor.create(document.querySelector('#video-description'), {
+					ClassicEditor.create(document.querySelector('#video-description'), {
 						toolbar: [ 'bold', 'italic', 'link', 'bulletedList', 'numberedList' ]
+					}).then(function (editor) {
+						container.editor = editor
 					})
 
 					$.each(descriptions, function(index, desc) {
@@ -121,9 +155,7 @@
 	});
 
 	$('#cancel-save').on('click', function() {
-		$('.get-video').removeClass('hidden').find('input').val(null);
-
-		$('.add-video').addClass('hidden');
+		location.href = location.href;
 	})
 
 	$('#confirm-save').on('click', function() {
@@ -136,7 +168,7 @@
 				submitData = {
 					'slug': slugify(title),
 					'title': title,
-					'description': $('#video-description').val(),
+					'description': container.editor.getData(),
 					'url': videoData.url,
 					'iframe': videoData.iframe, 
 					'thumbnail': videoData.thumbnail,
@@ -144,23 +176,22 @@
 					'feature_tag': $('#video-featured').val(),
 					'video_id': videoData.video_id + Date.now(),
 					'tags': video_types.join(),
+					'client': videoData.client,
 					'token': generateToken()
 				};
 
-				$.ajax({
-					type: 'POST',
-					url: '/_admin/video_save',
-					data: submitData,
-					dataType: 'json',
-					success: function(resp) {
-						console.log(resp);
-					},
-					error: function(resp) {
-						console.log(resp.responseJSON);
-					}
-				})
-
-
+		$.ajax({
+			type: 'POST',
+			url: '/_admin/video_save',
+			data: submitData,
+			dataType: 'json',
+			success: function(resp) {
+				console.log(resp);
+			},
+			error: function(resp) {
+				console.log(resp.responseJSON);
+			}
+		});
 	});
 
 	function generateToken() {
