@@ -1,19 +1,22 @@
+<?php
+	array_push($additional_scripts, 'current_year.js');
+?>
 	<footer>
 		<div class="constrain light">
 			<div class="contents text-center">
 				<div class="text-left half-width">
-					<div class="bold">Randy Witt Productions</div>
+					<div class="bold"><?php translate('global_company_name'); ?></div>
 					<div>
 						<?php foreach ($navigation as $nav) { ?>
-							<a class="light to-gold" href="<?php echo $nav['url']; ?>"><?php echo $nav['title']; ?></a>
+							<a class="light to-gold" href="<?php echo $nav['url']; ?>"><?php translate('global_nav_' . $nav['title']); ?></a>
 						<?php } ?> 
 					</div>
 				</div>
 
+
 				<div class="text-right half-width address-and-phone">
 					<div class="address text-left">
-						<span>5121 Van Nuys Blvd., Ste 222</span>
-						<span>Sherman Oaks, CA 91403</span>
+						<?php translate('footer_address'); ?>
 					</div>
 					<div class="phone text-right">
 						<span>T: 818.905.7777</span>
@@ -23,7 +26,7 @@
 
 			</div>
 			<div class="text-center copyright">
-				All Rights Reserved. &copy; <span id="copyright-year" data-year="2016"></span> Randy Witt Productions
+				All Rights Reserved. &copy; <span id="copyright-year"></span> Randy Witt Productions
 			</div>
 		</div>
 	</footer>

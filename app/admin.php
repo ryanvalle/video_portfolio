@@ -9,6 +9,16 @@
 			'title' => 'Admin Home',
 			'active_nav' => true
 		),
+		'pages' => array(
+			'url' => '/_admin/pages',
+			'title' => 'Page Manager',
+			'active_nav' => true
+		),
+		'page_edit' => array(
+			'url' => '/_admin/page_edit',
+			'title' => 'Page Content Manager',
+			'active_nav' => false
+		),
 		'videos' => array(
 			'url' => '/_admin/videos',
 			'title' => 'Video Manager',

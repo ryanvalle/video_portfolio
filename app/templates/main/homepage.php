@@ -8,14 +8,14 @@
 ?>
 <section class="text-blob">
 	<div class="constrain border-bottom">
-		<p>We’re an award-winning video production company that focuses on what you want to accomplish.  Collaboration is key as we learn about you, your goals, and your audience.  Your story becomes our passion.  Whether you arrive with a deadline and a blank slate, a rough idea, event date, or full-blown ad campaign, we’ll create powerful video that captures the message and experience you want to convey.  Crafted with imagination, emotion, and years of experience, our videos engage and motivate viewers.  Let us make a difference for you.</p>
+		<p><?php translate('homepage_rwp_description'); ?></p>
 	</div>
 </section>
 
 <?php if ( $featured_videos->num_rows > 0) { ?>
 <section class="featured-videos">
 	<div class="constrain text-center">
-		<h2>Clients love our creativity, collaboration, customer service, and most of all, the results</h2>	
+		<h2><?php translate('homepage_featured_video_header'); ?></h2>	
 	</div>
 	<div class="videos gridify text-center">
 		<ul>
@@ -29,7 +29,7 @@
 <?php } ?>
 
 <section class="what-people-say testimonial-videos gray-block section-padding">
-	<div class="text-center"><h2>What People Say About Us</h2></div>
+	<div class="text-center"><h2><?php translate('homepage_what_people_say'); ?></h2></div>
 	<div class="videos constrain text-center">
 		<ul>
 			<?php while($video = $testimonials->fetch_assoc())

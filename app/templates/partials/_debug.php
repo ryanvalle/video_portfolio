@@ -1,5 +1,5 @@
 <div class="debugger">
 	<ul>
-		<li><?php var_dump($navigation); ?></li>
+		<li><?php print_r($translations); ?></li>
 	</ul>
 </div>

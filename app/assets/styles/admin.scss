@@ -23,8 +23,8 @@ body.admin {
 	}
 
 	section {
-		.get-video { text-align: center; }
-		.get-video, .add-video {
+		.styled-form { text-align: center; }
+		.styled-form, .add-video {
 			border-bottom: 1px solid $gray;
 			border-top: 1px solid $gray;
 			padding: 20px 0;
@@ -39,10 +39,10 @@ body.admin {
 		 		&:disabled { opacity: 0.5; }
 		 	}
 			@include breakpoint(tablet) {
-				input { width: 300px; }
+				input, textarea { width: 300px; }
 			}
 			@include breakpoint(tablet-wide) {
-				input { width: 500px; }
+				input, textarea { width: 500px; }
 			}
 		}
 		.add-video {
@@ -91,7 +91,7 @@ body.admin {
 				h2 { margin: 10px; }
 			}
 		}
-		&.logo-list, .video-list{
+		&.logo-list, .content-list{
 			table{
 				width: 100%;
 				border-collapse: collapse;

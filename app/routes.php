@@ -15,6 +15,9 @@
     case '/_admin/update':
       include('lib/update_db.php');
       break;
+    case '/_admin/save_string':
+      include('lib/save_string.php');
+      break;
     case '/_contact':
       include('lib/contact.php');
       break;

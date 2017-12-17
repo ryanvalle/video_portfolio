@@ -127,4 +127,42 @@
 				"query" => $sql
 			);
 		}
+
+	}
+	
+	function get_page_type_ids($id) {
+		global $conn;
+		$sql = "SELECT * FROM page_type_ids";
+		if ($id >= 0) {
+			$sql = $sql . " WHERE id=" . $id;
+		}
+		$result = [];
+		if ($query = $conn->query($sql)) {
+			$result = $query;
+			if ($id >= 0) { $result = $result->fetch_assoc(); }
+		}
+
+		return $result;
+	}
+
+	function get_page_content($id) {
+		global $conn;
+		$sql = "SELECT * FROM page_type_ids WHERE id=" . $id;
+		$result = [];
+		if ($query = $conn->query($sql)) { $result = $query; }
+		return $result;
+	}
+
+	function get_page_translations($id) {
+		global $conn;
+		$sql = "SELECT mapping_key, mapping_string FROM contents WHERE page_id=" . $id . " OR page_id=0"; 
+		$result = array();
+		$translations = array();
+		if ($query = $conn->query($sql)) {
+			$result = $query;
+		}
+		foreach($result as $key => $str) {
+			$translations[$str['mapping_key']] = $str['mapping_string'];
+		}
+		return $translations;
 	}

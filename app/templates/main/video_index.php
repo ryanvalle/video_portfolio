@@ -7,7 +7,7 @@
 <section class="featured-videos portfolio-index">
 	<?php if ( $categories->num_rows > 0) { ?>
 	<div class="constrain filters">
-		<span class="gray-text">Filter By:</span>	
+		<span class="gray-text"><?php translate('portfolio_filter_by'); ?></span>	
 		<div class="text-center">
 			<?php while($cat = $categories->fetch_assoc()) { ?><button class="button gray gray-border transparent-bg dark-opaque to-gold-border to-gold-text no-side-margin oneline small-padding sm-bottom-margin active-state" data-category-target="<?php echo $cat['id']; ?>"><?php echo $cat['title']; ?></button><?php } ?>
 		</div>

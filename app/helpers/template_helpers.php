@@ -13,3 +13,14 @@
 		}
 		return $title;
 	}
+
+	function translate($key) {
+		global $translations;
+		$key = strtolower($key);
+		$key = preg_replace('/\s+/', '', $key);
+		if (array_key_exists($key, $translations)) {
+			echo $translations[strtolower($key)];
+		} else {
+			echo "Content Missing: " . strtolower($key);
+		}
+	}

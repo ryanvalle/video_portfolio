@@ -58,16 +58,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="form get-video">
+	<div class="form styled-form">
 		<ul class="error-messages">
 		</ul>
-		<input type="text" placeholder="Enter video URL to add video" value="https://vimeo.com/217057200"/>
+		<input type="text" placeholder="Enter video URL to add video (ex: https://vimeo.com/217057200)"/>
 		<button id="query-video" class="button dark-opaque to-gold-bg">Get Video</button>
 	</div>
 </section>
 
 <section>
-	<div class="constrain video-list">
+	<div class="constrain content-list">
 		<table>
 			<thead>
 				<tr>
@@ -174,7 +174,7 @@
 					'thumbnail': videoData.thumbnail,
 					'provider': videoData.provider,
 					'feature_tag': $('#video-featured').val(),
-					'video_id': videoData.video_id + Date.now(),
+					'video_id': videoData.video_id,
 					'tags': video_types.join(),
 					'client': videoData.client,
 					'token': generateToken()
@@ -187,9 +187,11 @@
 			dataType: 'json',
 			success: function(resp) {
 				console.log(resp);
+				alert('Successfully created video.');
 			},
 			error: function(resp) {
 				console.log(resp.responseJSON);
+				alert("Error creating video: " + resp.responseJSON.error);
 			}
 		});
 	});

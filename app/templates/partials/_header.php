@@ -11,7 +11,7 @@
 				<a class="logo" href="/" title="Randy Witt Productions"></a>
 				<nav>
 					<?php foreach ($navigation as $nav) { ?>
-						<a class="light" href="<?php echo $nav['url']; ?>"><?php echo $nav['title']; ?></a>
+						<a class="light" href="<?php echo $nav['url']; ?>"><?php translate('global_nav_' . $nav['title']); ?></a>
 					<?php } ?> 
 				</nav>
 			</div>

@@ -15,11 +15,15 @@
   // Check if a video
   if ($data == NULL) {
     $data = get_video_by_slug($URL['path']);
+    if ($data) {
+      $data['page_type'] = 4;
+    }
   }
   if ($data == NULL) {
     http_response_code(404);
   }
 
+  $translations = get_page_translations($data['page_type']);
   include('templates/partials/_header.php');
 
   if ($data == NULL) {

@@ -13,26 +13,26 @@ body.admin header {
       vertical-align: middle; }
   body.admin header nav {
     width: calc(100% - 140px); }
-body.admin section .get-video {
+body.admin section .styled-form {
   text-align: center; }
-body.admin section .get-video, body.admin section .add-video {
+body.admin section .styled-form, body.admin section .add-video {
   border-bottom: 1px solid #DDDDDD;
   border-top: 1px solid #DDDDDD;
   padding: 20px 0; }
-  body.admin section .get-video input, body.admin section .get-video label, body.admin section .get-video textarea, body.admin section .add-video input, body.admin section .add-video label, body.admin section .add-video textarea {
+  body.admin section .styled-form input, body.admin section .styled-form label, body.admin section .styled-form textarea, body.admin section .add-video input, body.admin section .add-video label, body.admin section .add-video textarea {
     font-size: 1.1em;
     display: inline-block;
     width: 90%;
     padding: 10px; }
-  body.admin section .get-video button, body.admin section .add-video button {
+  body.admin section .styled-form button, body.admin section .add-video button {
     font-size: 1.1em; }
-    body.admin section .get-video button:disabled, body.admin section .add-video button:disabled {
+    body.admin section .styled-form button:disabled, body.admin section .add-video button:disabled {
       opacity: 0.5; }
   @media (min-width: 601px) {
-    body.admin section .get-video input, body.admin section .add-video input {
+    body.admin section .styled-form input, body.admin section .styled-form textarea, body.admin section .add-video input, body.admin section .add-video textarea {
       width: 300px; } }
   @media (min-width: 768px) {
-    body.admin section .get-video input, body.admin section .add-video input {
+    body.admin section .styled-form input, body.admin section .styled-form textarea, body.admin section .add-video input, body.admin section .add-video textarea {
       width: 500px; } }
 body.admin section .add-video input, body.admin section .add-video textarea, body.admin section .add-video label {
   width: 100%; }
@@ -69,23 +69,23 @@ body.admin section.logo-manager .logo-uploader {
   border-bottom: 1px solid #DDDDDD; }
   body.admin section.logo-manager .logo-uploader h2 {
     margin: 10px; }
-body.admin section.logo-list table, body.admin section .video-list table {
+body.admin section.logo-list table, body.admin section .content-list table {
   width: 100%;
   border-collapse: collapse; }
-body.admin section.logo-list table, body.admin section.logo-list th, body.admin section.logo-list td, body.admin section .video-list table, body.admin section .video-list th, body.admin section .video-list td {
+body.admin section.logo-list table, body.admin section.logo-list th, body.admin section.logo-list td, body.admin section .content-list table, body.admin section .content-list th, body.admin section .content-list td {
   border: 1px solid #DDDDDD; }
-body.admin section.logo-list th, body.admin section .video-list th {
+body.admin section.logo-list th, body.admin section .content-list th {
   padding: 10px;
   font-weight: 800;
   border-bottom: 2px solid #949494; }
-body.admin section.logo-list tr, body.admin section.logo-list td, body.admin section .video-list tr, body.admin section .video-list td {
+body.admin section.logo-list tr, body.admin section.logo-list td, body.admin section .content-list tr, body.admin section .content-list td {
   padding: 5px;
   text-align: center; }
-body.admin section.logo-list tbody tr:nth-child(odd), body.admin section .video-list tbody tr:nth-child(odd) {
+body.admin section.logo-list tbody tr:nth-child(odd), body.admin section .content-list tbody tr:nth-child(odd) {
   background-color: #f7f7f7; }
-body.admin section.logo-list thead tr, body.admin section .video-list thead tr {
+body.admin section.logo-list thead tr, body.admin section .content-list thead tr {
   background-color: #B1B1B1; }
-body.admin section.logo-list img, body.admin section .video-list img {
+body.admin section.logo-list img, body.admin section .content-list img {
   width: 100px; }
 
 /*# sourceMappingURL=admin.css.map */

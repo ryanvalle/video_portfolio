@@ -1,16 +1,16 @@
 <section class="contact-form lets-get-started">
 	<div class="text-center constrain">
 		<?php if($config['show_contact_form_header']) { ?>
-			<h2>Let's Get Started</h2>
+			<h2><?php translate('global_lets_get_started'); ?></h2>
 		<?php } ?>
 		<form class="contact-form-wrapper">
-			<input type="text" placeholder="Name" id="contact-form-name" required />
-			<input type="tel" placeholder="Phone Number" id="contact-form-phone" required />
-			<input type="text" placeholder="Company Name" id="contact-form-business" />
-			<input type="email" placeholder="E-Mail" id="contact-form-email" required />
-			<textarea id="contact-form-message" placeholder="How can we help?"></textarea>
+			<input type="text" placeholder="<?php translate('global_contact_us_name'); ?>" id="contact-form-name" required />
+			<input type="tel" placeholder="<?php translate('global_contact_us_phone'); ?>" id="contact-form-phone" required />
+			<input type="text" placeholder="<?php translate('global_contact_us_company_name'); ?>" id="contact-form-business" />
+			<input type="email" placeholder="<?php translate('global_contact_us_email'); ?>" id="contact-form-email" required />
+			<textarea id="contact-form-message" placeholder="<?php translate('global_contact_us_how_can_we_help'); ?>"></textarea>
 			<div class="text-right">
-				<button class="button white gold-background dark-opaque to-gold-bg no-side-margin">Submit</button>
+				<button class="button white gold-background dark-opaque to-gold-bg no-side-margin"><?php translate('global_contact_us_submit'); ?></button>
 			</form>
 		</form>
 	</div>
