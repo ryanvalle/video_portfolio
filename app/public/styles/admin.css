@@ -33,7 +33,7 @@ body.admin section .styled-form, body.admin section .add-video {
       width: 300px; } }
   @media (min-width: 768px) {
     body.admin section .styled-form input, body.admin section .styled-form textarea, body.admin section .add-video input, body.admin section .add-video textarea {
-      width: 500px; } }
+      width: 400px; } }
 body.admin section .add-video input, body.admin section .add-video textarea, body.admin section .add-video label {
   width: 100%; }
 body.admin section .add-video label {

@@ -1,14 +1,38 @@
 <?php
 	$page = get_page_type_ids($_GET['id']);
 	$contents = get_page_content($_GET['id']);
+	$translations = get_page_translations($_GET['id']);
 ?>
 
 <section>
 	<div class="constrain content-list">
-		<h2>Managing <?php echo $page['title']; ?></h2>
-				
+		<div id="show-current-strings" class="styled-form">
+			<div class="text-left">
+				<h3 style="margin:0;">Manage existing text</h3>
+			</div>
 
-		<hr />
+			<table>
+				<thead>
+					<tr>
+						<th>Key</th>
+						<th>Text</th>
+						<th>Update</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($translations as $key => $translation) { ?>
+						<tr>
+							<td><?php echo $key; ?></td>
+							<td>
+								<textarea data-target="<?php echo $key; ?>"><?php echo $translation; ?></textarea>
+							</td>
+							<td><button class="update-copy" data-target="<?php echo $key; ?>">Save</button>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+
+		</div>
 
 		<div id="add-new-string" class="add-new-string styled-form hidden">
 			<div class="text-left">
@@ -60,6 +84,25 @@
 			});
 		}
 	});
+
+	$('.update-copy').on('click', function() {
+		var target = $(this).data('target'),
+				data = {
+					'id': null,
+					'mapping_key': target,
+					'mapping_string': $('textarea[data-target="'+target+'"]').val()
+				};
+		data['table'] = "contents";
+		data['token'] = generateToken();
+		$.ajax({
+			url: "/_admin/update",
+			type: "POST",
+			data: data,
+			beforeSend: function() { console.log('UPDATING:', data); },
+			success: function(data) { console.log('UPDATED:', data); },
+			error: function(data) { console.log('ERROR:',data); }
+		})
+	})
 
 	function generateToken() {
 		return 12345;

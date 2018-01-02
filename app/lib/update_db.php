@@ -19,6 +19,9 @@
 		case 'partners':
 			$fields = array('logo','url','title','active');
 			break;
+		case 'contents':
+			$fields = array('id', 'mapping_key','mapping_string');
+			break;
 	}
 	$filtered_data = array();
 

@@ -113,7 +113,11 @@
 			}
 		}
 		$set = implode(', ', $sets);
-		$sql = "UPDATE " . $table  . " SET " . $set . " WHERE id=" . $id;
+		if ($table == 'contents') {
+			$sql = "UPDATE " . $table  . " SET " . $set . " WHERE mapping_key=\"" . $data['mapping_key'] . "\"";
+		} else {
+			$sql = "UPDATE " . $table  . " SET " . $set . " WHERE id=" . $id;
+		}
 
 		if ($query = $conn->query($sql)) {
 			return array(
@@ -151,6 +155,17 @@
 		$result = [];
 		if ($query = $conn->query($sql)) { $result = $query; }
 		return $result;
+	}
+
+	function get_content_id_by_key($key) {
+		global $conn;
+		$sql = "SELECT * FROM contents WHERE mapping_key=" . $key;
+		$result = [];
+		if ($query = $conn->query($sql)) {
+			$result = $query;
+			$result = $result->fetch_assoc();
+		}
+		return $result['id'];	
 	}
 
 	function get_page_translations($id) {
