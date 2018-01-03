@@ -28,6 +28,9 @@
       include('helpers/admin_helpers.php');
       include('lib/authenticate.php');
       break;
+    case '/_admin/revoke':
+      include('lib/revoke.php');
+      break;
     case '/_contact':
       include('lib/contact.php');
       break;

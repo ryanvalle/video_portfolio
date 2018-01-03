@@ -30,7 +30,6 @@
 			$oembed_endpoint = 'http://vimeo.com/api/oembed';
 			$json_url = $oembed_endpoint . '.json?url=' . rawurlencode($url) . '&maxwidth=1920';
 			$resp = http_get($json_url);
-			error_log(gettype($resp))	;
 			if (gettype($resp) == "object") {
 				$save_data = array(
 					'url' => $url,

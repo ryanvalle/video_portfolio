@@ -8,8 +8,6 @@
 			$cookie_split = explode(".", $cookie);
 			$token = $cookie_split[0];
 			$user_id = $cookie_split[1];
-			error_log($token);
-			error_log($user_id);
 			$session = get_session_from_user_and_key($user_id, $token);
 			return !!$session;
 		} else {

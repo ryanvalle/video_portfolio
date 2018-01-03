@@ -9,10 +9,21 @@
 			$(function() {
 				$('#logout').on('click', function(e) {
 					e.preventDefault();
-					console.log('stkasjdlf');
-					now = new Date(0);
-					document.cookie = "rwp_admin_session= ;expires=" + now + "; path=/";
-					location.href = $(this).attr('href');
+					var that = this;
+					$.ajax({
+						url: '/_admin/revoke',
+						method: "POST",
+						success: function(resp) {
+							now = new Date(0);
+							document.cookie = "rwp_admin_session= ;expires=" + now + "; path=/";
+							location.href = $(that).attr('href');
+						},
+						error: function(resp) {
+							now = new Date(0);
+							document.cookie = "rwp_admin_session= ;expires=" + now + "; path=/";
+							location.href = $(that).attr('href');
+						}
+					})
 				});
 			})
 		</script>

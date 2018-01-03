@@ -89,7 +89,6 @@
 		$value_str = "(" . implode(', ',$values) . ")";
 
 		$sql = "INSERT INTO " . $table . " " . $key_str . " VALUES " . $value_str;
-		error_log($sql);
 		if ($query = $conn->query($sql)) {
 			return array(
 				'status' => 201,
@@ -195,9 +194,15 @@
 		global $conn;
 		$encrypted_token = hash('sha256', $token);
 		$sql = "SELECT * FROM user_sessions WHERE user_id=" . $user_id . " AND user_token='" . $encrypted_token . "'";
-		error_log($sql);
 		if ($query = $conn->query($sql)) {
 			$result = $query->fetch_assoc();
 		}
 		return $result;
+	}
+
+	function delete_session($user_id, $token) {
+		global $conn;
+		$encrypted_token = hash('sha256', $token);
+		$sql = "DELETE FROM user_sessions WHERE user_id=" . $user_id . " AND user_token='" . $encrypted_token . "'";
+		return $conn->query($sql);
 	}
