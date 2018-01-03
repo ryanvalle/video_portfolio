@@ -7,32 +7,44 @@
 		'home' => array(
 			'url' => '/_admin',
 			'title' => 'Admin Home',
-			'active_nav' => true
+			'active_nav' => true,
+			'auth' => true
 		),
 		'pages' => array(
 			'url' => '/_admin/pages',
 			'title' => 'Page Manager',
-			'active_nav' => true
+			'active_nav' => true,
+			'auth' => true
 		),
 		'page_edit' => array(
 			'url' => '/_admin/page_edit',
 			'title' => 'Page Content Manager',
-			'active_nav' => false
+			'active_nav' => false,
+			'auth' => true
 		),
 		'videos' => array(
 			'url' => '/_admin/videos',
 			'title' => 'Video Manager',
-			'active_nav' => true
+			'active_nav' => true,
+			'auth' => true
 		),
 		'videos_edit' => array(
 			'url' => '/admin/videos_edit',
 			'title' => 'Edit Video',
-			'active_nav' => false
+			'active_nav' => false,
+			'auth' => true
 		),
 		'logos' => array(
 			'url' => '/_admin/logos',
 			'title' => 'Logo Manager',
-			'active_nav' => true
+			'active_nav' => true,
+			'auth' => true
+		),
+		'login' => array(
+			'url' => '/_admin/login',
+			'title' => 'Login Portal',
+			'active_nav' => false,
+			'auth' => false
 		),
 	);
 
@@ -55,7 +67,10 @@
 		exit();
 	}
 
+	if ($admin_nav[$page_key]['auth'] && !is_logged_in()) {
+		header("Location: " . $admin_nav['login']['url']);
+		exit();
+	}
+
 	include('admin/partials/_header.php');
 	include($file);
-	include('templates/partials/_debug.php');
-	include('admin/partials/_footer.php');

@@ -58,7 +58,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="form styled-form">
+	<div class="form styled-form get-video">
 		<ul class="error-messages">
 		</ul>
 		<input type="text" placeholder="Enter video URL to add video (ex: https://vimeo.com/217057200)"/>
@@ -146,7 +146,7 @@
 				error: function(resp) {
 					$('#query-video').attr('disabled',false);
 					var message = $('<li/>', {
-						text: resp.responseJSON.message
+						text: resp && resp.responseJSON && resp.responseJSON.message
 					})
 					$('.error-messages').html(message);
 				}

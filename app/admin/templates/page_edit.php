@@ -1,6 +1,6 @@
 <?php
-	$page = get_page_type_ids($_GET['id']);
-	$contents = get_page_content($_GET['id']);
+	// $page = get_page_type_ids($_GET['id']);
+	// $contents = get_page_content($_GET['id']);
 	$translations = get_page_translations($_GET['id']);
 ?>
 

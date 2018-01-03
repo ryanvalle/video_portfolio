@@ -16,7 +16,7 @@
  	*/
 	$data = $_POST;
 
-	if ( !isset($data['token'])) {
+	if ( !is_logged_in() ) {
 		// todo validate token...
 	 	echo set_error_response(403, 'Unauthorized');
 	 	exit();

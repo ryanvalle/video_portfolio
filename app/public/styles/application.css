@@ -256,6 +256,9 @@ nav {
       border-radius: 50px;
       font-size: 1.75em;
       border: 4px solid #fff; } }
+  .button.full-width {
+    width: 100%;
+    margin: 10px 0 0 0; }
   .button.dynamic-width {
     width: auto; }
   .button.small-padding {
